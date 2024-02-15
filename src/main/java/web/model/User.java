@@ -12,7 +12,7 @@ public class User {
     private Long id;
 
     @Column(name = "name")
-    private String firstName;
+    private String name;
 
     @Column(name = "last_name")
     private String lastName;
@@ -26,7 +26,7 @@ public class User {
     public User() {}
 
     public User( String firstName, String lastName, int age, String email) {
-        this.firstName = firstName;
+        this.name = firstName;
         this.lastName = lastName;
         this.age = age;
         this.email = email;
@@ -40,12 +40,12 @@ public class User {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String firstName) {
+        this.name = firstName;
     }
 
     public String getLastName() {
@@ -77,19 +77,19 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return age == user.age && Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email);
+        return age == user.age && Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, age, email);
+        return Objects.hash(id, name, lastName, age, email);
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
+                ", firstName='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +

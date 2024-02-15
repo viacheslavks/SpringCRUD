@@ -5,9 +5,6 @@ import web.model.User;
 import java.util.List;
 
 public interface UserDao {
-    void createUsersTable();
-
-    void dropUsersTable();
 
     void saveUser(String name, String lastName, int age, String email);
 
@@ -17,7 +14,9 @@ public interface UserDao {
 
     void removeUserById(long id);
 
+    public void update(Long id, User userUpdate);
+
     List<User> getAllUsers();
 
-    void cleanUsersTable();
+
 }
