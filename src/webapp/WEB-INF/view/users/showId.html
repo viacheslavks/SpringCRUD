@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show user by Id and delete</title>
+</head>
+<body>
+
+
+<form th:method="GET" th:action="@{/users/showId}">
+    <label for="userId">Enter User ID: </label>
+    <input type="text" id="userId" name="id" th:value="${id}"/>
+    <input type="submit" value="Show User"/>
+</form>
+
+</body>
+</html>

@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en" >
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello</title>
+    <title></title>
 </head>
 <body>
-<br>
-<h2>Hy there!</h2>
-<h3>Are you going to check users?</h3>
-<br>
-<br>
+<div>
+    <th:block th:each="msg : ${messages}">
+        <h1 th:text="${msg}"></h1>
+    </th:block>
+</div>
+<br/>
+<br/>
+<h2>
+<a href="/users/">List of users</a>
+</h2>
 <br>
 
 
