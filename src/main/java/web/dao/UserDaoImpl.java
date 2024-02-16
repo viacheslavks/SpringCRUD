@@ -32,13 +32,13 @@ public class UserDaoImpl implements UserDao {
 
 
     @Override
-    public User getUserById(long id) {
+    public User getUserById(Long id) {
         return entityManager.find(User.class, id);
     }
 
 
     @Override
-    public void removeUserById(long id) {
+    public void removeUserById(Long id) {
         User user = entityManager.find(User.class, id);
         if (user != null) {
             entityManager.remove(user);
@@ -53,6 +53,7 @@ public class UserDaoImpl implements UserDao {
         userToBeUpdate.setLastName(userUpdate.getLastName());
         userToBeUpdate.setAge(userToBeUpdate.getAge());
         userToBeUpdate.setEmail(userUpdate.getEmail());
+        entityManager.merge(userToBeUpdate);
     }
 
 

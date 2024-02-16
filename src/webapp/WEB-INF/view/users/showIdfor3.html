@@ -6,28 +6,21 @@
 </head>
 <body>
 <h2>Write user ID</h2>
-<form th:method="GET" th:action="@{/users/show}">
+
+<form th:method="GET" th:action="@{/users/action}">
     <label for="userId">Enter User ID: </label>
     <input type="text" id="userId" name="id" th:value="${id}"/>
+
+    <input type="hidden" name="action" value="show"/>
     <input type="submit" value="Show User"/>
-</form>
-<br/>
 
-<form th:method="GET" th:action="@{/users/delete}">
-    <label for="userId">Enter User ID: </label>
-    <input type="text" id="userId" name="id" th:value="${id}" />
+    <input type="hidden" name="action" value="delete"/>
     <input type="submit" value="Delete User" />
-</form>
-<br/>
 
-<form th:method="GET" th:action="@{/users/update}" >
-    <label for="userId">Enter User ID: </label>
-    <input type="text" id="userId" name="id" th:value="${id}" />
+    <input type="hidden" name="action" value="update"/>
     <input type="submit" value="Update User"/>
 </form>
 <br/>
-
-
 
 </body>
 </html>
