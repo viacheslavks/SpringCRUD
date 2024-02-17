@@ -1,5 +1,6 @@
 package web.dao;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -24,18 +25,15 @@ public class UserDaoImpl implements UserDao {
         entityManager.persist(user);
     }
 
-
     @Override
     public void add(User user) {
         entityManager.persist(user);
     }
 
-
     @Override
     public User getUserById(Long id) {
         return entityManager.find(User.class, id);
     }
-
 
     @Override
     public void removeUserById(Long id) {
@@ -45,17 +43,18 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-
     @Override
-    public void update(Long id, User userUpdate) {
-        User userToBeUpdate = entityManager.find(User.class, id);
+    public void update(User userUpdate) {
+        //User userToBeUpdate = entityManager.find(User.class, id);
+        User userToBeUpdate = entityManager.find(User.class, userUpdate.getId());
         userToBeUpdate.setName(userUpdate.getName());
         userToBeUpdate.setLastName(userUpdate.getLastName());
-        userToBeUpdate.setAge(userToBeUpdate.getAge());
+        userToBeUpdate.setAge(userUpdate.getAge());
         userToBeUpdate.setEmail(userUpdate.getEmail());
-        entityManager.merge(userToBeUpdate);
-    }
+        //entityManager.merge(userToBeUpdate);
 
+        entityManager.unwrap(Session.class).update(userToBeUpdate);
+    }
 
     @Override
     public List<User> getAllUsers() {
@@ -63,6 +62,4 @@ public class UserDaoImpl implements UserDao {
         Query query = entityManager.createQuery(hql, User.class);
         return query.getResultList();
     }
-
-
 }

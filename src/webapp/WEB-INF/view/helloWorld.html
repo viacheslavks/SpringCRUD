@@ -3,21 +3,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Message Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        h1 {
+            color: green;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-<div>
+
+<div class="container">
     <th:block th:each="msg : ${messages}">
         <h1 th:text="${msg}"></h1>
     </th:block>
-</div>
-<br/>
-<br/>
-<h2>
-<a href="/users/">List of users</a>
-</h2>
-<br>
 
+    <br/>
+    <br/>
+
+    <h2>
+        <a href="/users/" class="btn btn-primary">List of users</a>
+    </h2>
+</div>
 
 </body>
 </html>

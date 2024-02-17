@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Show User by Id</title>
-    <style>table th, table td {padding: 5px;}</style>
-</head>
-<div>
-    <table class="table table-dark table-hover">
-        <thead class="table-success">
-        <tr class="d-flex">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        table th, table td {
+            padding: 8px;
+        }
 
-            <thead>
+        table {
+            margin-top: 20px;
+        }
+
+        h4 {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <table class="table table-sm table-hover">
+        <thead class="table-success">
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
@@ -19,35 +31,31 @@
             <th scope="col">Email</th>
         </tr>
         </thead>
-
         <tbody>
-
         <tr>
-            <td th:text="${user.getId()}"/>
-            <td th:text="${user.getName()}"/>
-            <td th:text="${user.getLastName()}"/>
-            <td th:text="${user.getAge()}"/>
-            <td th:text="${user.getEmail()}"/>
-
+            <td th:text="${user.getId()}"></td>
+            <td th:text="${user.getName()}"></td>
+            <td th:text="${user.getLastName()}"></td>
+            <td th:text="${user.getAge()}"></td>
+            <td th:text="${user.getEmail()}"></td>
         </tr>
         </tbody>
-
     </table>
-</div>
-<body>
 
-<br/>
-<hr/>
-<h3>
-    <a href="/users/">Return to List of Users</a>
-</h3>
-<br/>
-<h3>
-    <a th:href="@{/users/delete(id=${user.id})}">Delete user</a>
-</h3>
-<br/>
-<h3>
-  <a th:href="@{/users/update(id=${user.id})}">Update user</a>
-</h3>
+    <hr/>
+
+    <h4>
+        <a href="/users/" class="btn btn-primary">Return to List of Users</a>
+    </h4>
+
+    <h4>
+        <a th:href="@{/users/delete(id=${user.id})}" class="btn btn-danger">Delete User</a>
+    </h4>
+
+    <h4>
+        <a th:href="@{/users/update(id=${user.id})}" class="btn btn-warning">Update User</a>
+    </h4>
+</div>
+
 </body>
 </html>

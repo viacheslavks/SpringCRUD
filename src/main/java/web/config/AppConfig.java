@@ -70,7 +70,6 @@ public class AppConfig {
         em.setPersistenceProvider(new HibernatePersistenceProvider());
         em.setJpaVendorAdapter(getJpaVendorAdapter());
 
-
         Properties properties = additionalProperties();
         if (properties == null) {
             LOGGER.log(Level.INFO, "JPA properties are null. Check your Hibernate configuration.");
@@ -79,7 +78,6 @@ public class AppConfig {
         em.setJpaProperties(properties);
         return em;
     }
-
 
     @Bean
     public JpaVendorAdapter getJpaVendorAdapter() {

@@ -14,7 +14,7 @@ public interface UserDao {
 
     void removeUserById(Long id);
 
-    public void update(Long id, User userUpdate);
+    public void update(User userUpdate);
 
     List<User> getAllUsers();
 

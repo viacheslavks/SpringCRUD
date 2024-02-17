@@ -37,15 +37,14 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User removeUserById(long id) {
+    public void removeUserById(long id) {
         userDao.removeUserById(id);
-        return null;
     }
 
     @Transactional
     @Override
-    public void update(long id, User userUpdate) {
-        userDao.update(id, userUpdate);
+    public void update(User userUpdate) {
+        userDao.update(userUpdate);
     }
 
     @Transactional
@@ -53,6 +52,5 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
-
 
 }
